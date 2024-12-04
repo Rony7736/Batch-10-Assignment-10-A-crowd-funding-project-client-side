@@ -32,7 +32,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex items-center">
-                    <NavLink to="/" className="btn btn-ghost text-2xl">Crowd Funding Website</NavLink>
+                    <NavLink to="/" className="btn btn-ghost text-2xl">Crowdcube</NavLink>
                 </div>
             </div>
 
