@@ -42,6 +42,7 @@ const Navbar = () => {
 
             <div className="navbar-end gap-4 rounded-lg ">
                 <NavLink to='/login' className="btn btn-neutral rounded-none">Login</NavLink>
+                <NavLink to='/register' className="btn btn-neutral rounded-none">Register</NavLink>
                 {/* 
                 {
                     user && user?.email ? <div>
