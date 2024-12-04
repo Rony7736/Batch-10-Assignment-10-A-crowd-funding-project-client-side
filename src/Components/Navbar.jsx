@@ -1,14 +1,16 @@
-
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(authContext)
 
     const links = <div className="flex justify-center items-center gap-6 font-bold text-lg">
-        <NavLink to="/" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>Home</li></NavLink>
-        <NavLink to="/allcampaign" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>All Campaign</li></NavLink>
-        <NavLink to="/addcampaign" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>Add New Campaign</li></NavLink>
-        <NavLink to="/mycampaign" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>My Campaign</li></NavLink>
-        <NavLink to="/mydonations" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>My Donations</li></NavLink>
+        <NavLink to="/" className={({ isActive }) => `text-base ${isActive ? 'text-white font-semibold border bg-black border-black px-4 py-1 rounded-3xl' : 'hover:text-white'}`}><li>Home</li></NavLink>
+        <NavLink to="/allcampaign" className={({ isActive }) => `text-base ${isActive ? 'text-white font-semibold border bg-black border-black px-4 py-1 rounded-3xl' : 'hover:text-white'}`}><li>All Campaign</li></NavLink>
+        <NavLink to="/addcampaign" className={({ isActive }) => `text-base ${isActive ? 'text-white font-semibold border bg-black border-black px-4 py-1 rounded-3xl' : 'hover:text-white'}`}><li>Add New Campaign</li></NavLink>
+        <NavLink to="/mycampaign" className={({ isActive }) => `text-base ${isActive ? 'text-white font-semibold border bg-black border-black px-4 py-1 rounded-3xl' : 'hover:text-white'}`}><li>My Campaign</li></NavLink>
+        <NavLink to="/mydonations" className={({ isActive }) => `text-base ${isActive ? 'text-white font-semibold border bg-black border-black px-4 py-1 rounded-3xl' : 'hover:text-white'}`}><li>My Donations</li></NavLink>
 
     </div>
 
@@ -41,9 +43,7 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end gap-4 rounded-lg ">
-                <NavLink to='/login' className="btn btn-neutral rounded-none">Login</NavLink>
-                <NavLink to='/register' className="btn btn-neutral rounded-none">Register</NavLink>
-                {/* 
+
                 {
                     user && user?.email ? <div>
                         <img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" />
@@ -54,8 +54,11 @@ const Navbar = () => {
                     user && user?.email ?
                         <button onClick={logOut} className="btn btn-neutral rounded-none">Logout</button>
                         :
-                        <NavLink to='/login' className="btn btn-neutral rounded-none">Login</NavLink>
-                } */}
+                        <div className="flex gap-4">
+                            <NavLink to='/login' className="btn btn-neutral rounded-none">Login</NavLink>
+                            <NavLink to='/register' className="btn btn-neutral rounded-none">Register</NavLink>
+                        </div>
+                }
 
 
 
