@@ -4,11 +4,11 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
 
     const links = <div className="flex justify-center items-center gap-6 font-bold text-lg">
-        <NavLink to="/" className={({ isActive }) => `text-base ${isActive ? 'text-warning font-bold' : 'hover:text-warning'}`}><li>Home</li></NavLink>
-        <NavLink to="/donation" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>All Campaign</li></NavLink>
-        <NavLink to="/tohelp" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>Add New Campaign</li></NavLink>
-        <NavLink to="/dashboard" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>My Campaign</li></NavLink>
-        <NavLink to="/dashboard" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>My Donations</li></NavLink>
+        <NavLink to="/" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>Home</li></NavLink>
+        <NavLink to="/allcampaign" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>All Campaign</li></NavLink>
+        <NavLink to="/addcampaign" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>Add New Campaign</li></NavLink>
+        <NavLink to="/mycampaign" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>My Campaign</li></NavLink>
+        <NavLink to="/mydonations" className={({ isActive }) => `text-base ${isActive ? 'text-white font-bold' : 'hover:text-white'}`}><li>My Donations</li></NavLink>
 
     </div>
 
@@ -42,6 +42,21 @@ const Navbar = () => {
 
             <div className="navbar-end gap-4 rounded-lg ">
                 <NavLink to='/login' className="btn btn-neutral rounded-none">Login</NavLink>
+                {/* 
+                {
+                    user && user?.email ? <div>
+                        <img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" />
+                    </div> : ""
+                }
+
+                {
+                    user && user?.email ?
+                        <button onClick={logOut} className="btn btn-neutral rounded-none">Logout</button>
+                        :
+                        <NavLink to='/login' className="btn btn-neutral rounded-none">Login</NavLink>
+                } */}
+
+
 
             </div>
         </div>
