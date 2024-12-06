@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 
 const AddCampaign = () => {
 
@@ -12,7 +13,30 @@ const AddCampaign = () => {
         const useremail = form.useremail.value
         const username = form.username.value
 
-        console.log({photo, campaigntitle, description, donationamount, details, useremail, username});
+        const newCampaign = {photo, campaigntitle, description, donationamount, details, useremail, username};
+        console.log(newCampaign);
+
+        // send data to the server
+        fetch('http://localhost:5000/addcampaign', {
+            method: "POST",
+            headers : {
+                'Content-Type' : 'application/json' 
+            },
+            body: JSON.stringify(newCampaign)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)  
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'User Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Close'
+                  })
+            }       
+        })
+        
 
     }
     
