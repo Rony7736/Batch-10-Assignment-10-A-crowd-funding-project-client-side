@@ -9,6 +9,7 @@ import MyDonations from "../Pages/MyDonations";
 import Register from "../Components/Register/Register";
 import Login from "../Components/Login/Login";
 import UpdateCampaign from "../Components/UpdateCampaign";
+import CampaignDetails from "../Components/CampaignDetails";
 // import Login from "../Components/Login/Login";
 
 const router = createBrowserRouter([
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
             {
                 path: "/allcampaign",
                 element: <AllCampaign></AllCampaign>,
+                loader: () => fetch("http://localhost:5000/addcampaign")
             },
             {
                 path: "/addcampaign",
@@ -48,6 +50,11 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            },
+            {
+                path: "/details",
+                element: <CampaignDetails></CampaignDetails>,
+                loader: () => fetch("http://localhost:5000/addcampaign")
             },
         ]
     },

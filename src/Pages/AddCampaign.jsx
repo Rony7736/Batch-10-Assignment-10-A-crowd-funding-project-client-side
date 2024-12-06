@@ -45,16 +45,13 @@ const AddCampaign = () => {
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'User Added Successfully',
+                        text: 'New Campaign Added Successfully In the All Campaign Page',
                         icon: 'success',
                         confirmButtonText: 'Close'
                     })
                 }
             })
     }
-
-
-
 
 
     return (
@@ -89,13 +86,13 @@ const AddCampaign = () => {
 
                 {/* Campaign Type row */}
                 <div className="mb-8">
-                    <div className="form-control md:w-1/2">
+                    <div className="form-control">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Campaign Type</span>
                         </label>
 
-                        <label className="">
-                            <select className="py-2 px-3 rounded-lg" name="campaigntype" required>
+                        <label className="md:w-full">
+                            <select className="py-2 px-3 rounded-lg md:w-full" name="campaigntype" required>
                                 <option value="">Select An Campaign Type</option>
                                 <option value="Personal Issue">Personal Issue</option>
                                 <option value="Startup">Startup</option>
@@ -114,7 +111,7 @@ const AddCampaign = () => {
                         </label>
 
                         <label className="input-group">
-                            <input type="text" placeholder="description" name="description" className="input input-bordered md:w-full" required />
+                            <input type="text" placeholder="Write a Brief Description" name="description" className="input input-bordered md:w-full" required />
                         </label>
                     </div>
 
@@ -153,7 +150,7 @@ const AddCampaign = () => {
                         </label>
 
                         <label className="input-group">
-                            <input type="text" placeholder="User Email" name="useremail" className="input input-bordered md:w-full" required/>
+                            <input type="email" placeholder="User Email" name="useremail" className="input input-bordered md:w-full" required/>
                         </label>
                     </div>
 
