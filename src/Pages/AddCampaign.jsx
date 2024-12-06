@@ -1,46 +1,59 @@
 import Swal from "sweetalert2";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from "react";
 
 const AddCampaign = () => {
+
+    const [startDate, setStartDate] = useState(new Date());
 
     const handleAddCampaign = (e) => {
         e.preventDefault()
         const form = e.target
         const photo = form.photo.value
         const campaigntitle = form.campaigntitle.value
+        const campaigntype = form.campaigntype.value;
         const description = form.description.value
         const donationamount = form.donationamount.value
-        const details = form.details.value
+        const formattedDate = startDate.toLocaleDateString("en-CA");
         const useremail = form.useremail.value
         const username = form.username.value
 
-        const newCampaign = {photo, campaigntitle, description, donationamount, details, useremail, username};
+        const newCampaign = { 
+            photo : photo, 
+            title : campaigntitle, 
+            campaigntype : campaigntype, 
+            description : description, 
+            amount: donationamount, 
+            date : formattedDate, 
+            email : useremail, 
+            name : username, 
+        };
         console.log(newCampaign);
 
         // send data to the server
         fetch('http://localhost:5000/addcampaign', {
             method: "POST",
-            headers : {
-                'Content-Type' : 'application/json' 
+            headers: {
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(newCampaign)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)  
-            if(data.insertedId){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'User Added Successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Close'
-                  })
-            }       
-        })
-        
-
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'User Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Close'
+                    })
+                }
+            })
     }
-    
-    
+
+
 
 
 
@@ -58,7 +71,7 @@ const AddCampaign = () => {
                         </label>
 
                         <label className="input-group">
-                            <input type="text" placeholder="Enter photo URL" name="photo" className="input input-bordered md:w-full" />
+                            <input type="text" placeholder="Enter photo URL" name="photo" className="input input-bordered md:w-full" required/>
                         </label>
                     </div>
 
@@ -68,7 +81,7 @@ const AddCampaign = () => {
                         </label>
 
                         <label className="input-group">
-                            <input type="text" placeholder="campaigntitle" name="campaigntitle" className="input input-bordered md:w-full" />
+                            <input type="text" placeholder="campaigntitle" name="campaigntitle" className="input input-bordered md:w-full" required/>
                         </label>
                     </div>
 
@@ -82,7 +95,7 @@ const AddCampaign = () => {
                         </label>
 
                         <label className="">
-                            <select className="py-2 px-3 rounded-lg" required>
+                            <select className="py-2 px-3 rounded-lg" name="campaigntype" required>
                                 <option value="">Select An Campaign Type</option>
                                 <option value="Personal Issue">Personal Issue</option>
                                 <option value="Startup">Startup</option>
@@ -101,7 +114,7 @@ const AddCampaign = () => {
                         </label>
 
                         <label className="input-group">
-                            <input type="text" placeholder="description" name="description" className="input input-bordered md:w-full" />
+                            <input type="text" placeholder="description" name="description" className="input input-bordered md:w-full" required />
                         </label>
                     </div>
 
@@ -115,7 +128,7 @@ const AddCampaign = () => {
                         </label>
 
                         <label className="input-group">
-                            <input type="text" placeholder="Minimum Donation Amount" name="donationamount" className="input input-bordered md:w-full" />
+                            <input type="number" placeholder="Minimum Donation Amount" name="donationamount" className="input input-bordered md:w-full" required />
                         </label>
                     </div>
 
@@ -124,9 +137,11 @@ const AddCampaign = () => {
                             <span className="label-text text-lg font-semibold">Deadline</span>
                         </label>
 
-                        <label className="input-group">
-                            <input type="text" placeholder="Enter coffee details" name="details" className="input input-bordered md:w-full" />
-                        </label>
+                        <DatePicker
+                            className="input input-bordered w-full"
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                        />
                     </div>
                 </div>
 
@@ -138,7 +153,7 @@ const AddCampaign = () => {
                         </label>
 
                         <label className="input-group">
-                            <input type="text" placeholder="User Email" name="useremail" className="input input-bordered md:w-full" />
+                            <input type="text" placeholder="User Email" name="useremail" className="input input-bordered md:w-full" required/>
                         </label>
                     </div>
 
@@ -148,7 +163,7 @@ const AddCampaign = () => {
                         </label>
 
                         <label className="input-group">
-                            <input type="text" placeholder="User Name" name="username" className="input input-bordered md:w-full" />
+                            <input type="text" placeholder="User Name" name="username" className="input input-bordered md:w-full" required/>
                         </label>
                     </div>
                 </div>
