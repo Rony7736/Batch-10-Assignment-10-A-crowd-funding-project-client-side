@@ -25,10 +25,10 @@ const Navbar = () => {
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         <NavLink to="/" className={({ isActive }) => `text-base ${isActive ? 'text-warning font-bold' : 'hover:text-warning'}`}><li>Home</li></NavLink>
-                        <NavLink to="/donation" className={({ isActive }) => `text-base ${isActive ? 'text-warning font-bold' : 'hover:text-warning'}`}><li>All Campaign</li></NavLink>
-                        <NavLink to="/tohelp" className={({ isActive }) => `text-base ${isActive ? 'text-warning font-bold' : 'hover:text-warning'}`}><li>Add New Campaign</li></NavLink>
-                        <NavLink to="/dashboard" className={({ isActive }) => `text-base ${isActive ? 'text-warning font-bold' : 'hover:text-warning'}`}><li>My Campaign</li></NavLink>
-                        <NavLink to="/dashboard" className={({ isActive }) => `text-base ${isActive ? 'text-warning font-bold' : 'hover:text-warning'}`}><li>My Donations</li></NavLink>
+                        <NavLink to="/allcampaign" className={({ isActive }) => `text-base ${isActive ? 'text-warning font-bold' : 'hover:text-warning'}`}><li>All Campaign</li></NavLink>
+                        <NavLink to="/addcampaign" className={({ isActive }) => `text-base ${isActive ? 'text-warning font-bold' : 'hover:text-warning'}`}><li>Add New Campaign</li></NavLink>
+                        <NavLink to="/mycampaign" className={({ isActive }) => `text-base ${isActive ? 'text-warning font-bold' : 'hover:text-warning'}`}><li>My Campaign</li></NavLink>
+                        <NavLink to="/mydonations" className={({ isActive }) => `text-base ${isActive ? 'text-warning font-bold' : 'hover:text-warning'}`}><li>My Donations</li></NavLink>
                     </ul>
                 </div>
                 <div className="flex items-center">

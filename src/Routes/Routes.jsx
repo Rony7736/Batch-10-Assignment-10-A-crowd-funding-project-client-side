@@ -8,6 +8,7 @@ import MyCampaign from "../Pages/MyCampaign";
 import MyDonations from "../Pages/MyDonations";
 import Register from "../Components/Register/Register";
 import Login from "../Components/Login/Login";
+import UpdateCampaign from "../Components/UpdateCampaign";
 // import Login from "../Components/Login/Login";
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
                 element: <AddCampaign></AddCampaign>,
             },
             {
+                path: "/updatecampaign",
+                element: <UpdateCampaign></UpdateCampaign>,
+            },
+            {
                 path: "/mycampaign",
                 element: <MyCampaign></MyCampaign>,
             },
@@ -40,7 +45,6 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>,
             },
-
             {
                 path: "/login",
                 element: <Login></Login>

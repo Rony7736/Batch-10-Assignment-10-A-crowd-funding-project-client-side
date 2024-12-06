@@ -80,12 +80,8 @@ const Register = () => {
         <div>
             <div className="hero bg-base-200 lg:py-20">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <img className="lg:ml-12 rounded-3xl" src="" alt="" />
 
-                    </div>
-
-                    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl my-10">
+                    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl my-10 px-4">
                         <h1 className="text-4xl font-bold text-center pt-6">Register now!</h1>
                         <form onSubmit={handleSubmit} className="card-body">
 
