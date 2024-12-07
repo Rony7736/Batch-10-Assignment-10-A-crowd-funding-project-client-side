@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyCampaignTable = ({ campaign, idx, campaignData, setCampaignData }) => {
 
@@ -13,7 +14,13 @@ const MyCampaignTable = ({ campaign, idx, campaignData, setCampaignData }) => {
         .then(res => res.json())
         .then(result => {
             const remainingData = campaignData.filter((campaign) => id!= campaign._id)    
-            setCampaignData(remainingData)     
+            setCampaignData(remainingData)   
+            Swal.fire({
+                title: 'Success!',
+                text: 'Deleted Data Successfully',
+                icon: 'success',
+                confirmButtonText: 'Close'
+            })  
         })
 
         
@@ -34,7 +41,7 @@ const MyCampaignTable = ({ campaign, idx, campaignData, setCampaignData }) => {
                             <button onClick={()=>handleDelete(_id)} className="bg-[#FFBE46] font-semibold px-4 py-2 rounded">Delete</button>
                         </Link>
 
-                        <Link>
+                        <Link to={`/update/${_id}`}>
                             <button className="bg-[#FFBE46] font-semibold px-4 py-2 rounded">Update</button>
                         </Link>
 

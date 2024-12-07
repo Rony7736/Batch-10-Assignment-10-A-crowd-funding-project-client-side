@@ -8,7 +8,7 @@ const CampaignDetails = () => {
 
     return (
         <div>
-            <h2>deatils: {campaignData.length}</h2>
+            <h2 className="text-center font-bold text-4xl my-6 text-purple-500">Campaign Deatils</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg: mb-6 mx-10">
                 {
                     campaignData.map(campaign => <Deatails key={campaign._id} campaign={campaign}></Deatails>)
