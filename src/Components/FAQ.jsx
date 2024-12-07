@@ -2,7 +2,7 @@
 const FAQ = () => {
     return (
         <div className="pb-10">
-            <div className="card bg-base-100 p-6 m-10">
+            <div className="card bg-base-100 p-6">
                 <h1 className="text-3xl text-center text-[#FFBE46] font-bold my-6 bg-slate-800 p-4">A frequently asked questions (FAQ)</h1>
                 <div className="collapse collapse-arrow bg-base-200 mb-3">
                     <input type="radio" name="my-accordion-2" defaultChecked />

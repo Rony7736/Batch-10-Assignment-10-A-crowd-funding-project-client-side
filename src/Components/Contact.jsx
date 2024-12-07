@@ -3,7 +3,7 @@ const Contact = () => {
     return (
         <div>
 
-            <div className="card bg-base-100 my-8">
+            <div className="card bg-base-100 mt-8">
                 <h1 className="text-3xl text-center text-[#FFBE46] font-bold bg-slate-800 p-4">Contact Section</h1>
 
                 <div className="bg-[#F4F3F0] px-8 py-12 ">
@@ -16,7 +16,7 @@ const Contact = () => {
                     </div>
 
                     <div className="pt-6 text-center">
-                        <button className="btn btn-warning rounded-xl h-16 w-40 text-lg font-semibold">Submit</button>
+                        <button className="btn btn-warning rounded-xl h-12 w-56 text-lg font-semibold">Submit</button>
                     </div>
                 </div>
             </div>
