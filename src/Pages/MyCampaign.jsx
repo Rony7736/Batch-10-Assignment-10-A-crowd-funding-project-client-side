@@ -1,8 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import MyCampaignTable from "../Components/MyCampaignTable";
+import { useState } from "react";
 
 const MyCampaign = () => {
-    const campaignData = useLoaderData()
+    const data = useLoaderData()
+
+    const [campaignData, setCampaignData] = useState(data)
     return (
         <div className="py-8">
             <div className="w-11/12 mx-auto bg-slate-50">
@@ -21,7 +24,7 @@ const MyCampaign = () => {
                         <tbody>
                             {
                                 campaignData.length === 0 ? <p>No Data Found</p> :
-                                campaignData.map((campaign, index) => <MyCampaignTable key={campaign?._id} idx={index} campaign={campaign}></MyCampaignTable>)
+                                campaignData.map((campaign, index) => <MyCampaignTable key={campaign?._id} idx={index} campaign={campaign} campaignData={campaignData} setCampaignData={setCampaignData}></MyCampaignTable>)
                             }
                         </tbody>
                     </table>

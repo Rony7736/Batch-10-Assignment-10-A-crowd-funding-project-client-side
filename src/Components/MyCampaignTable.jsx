@@ -1,9 +1,23 @@
 import { Link } from "react-router-dom";
 
-const MyCampaignTable = ({ campaign, idx }) => {
+const MyCampaignTable = ({ campaign, idx, campaignData, setCampaignData }) => {
 
     const {_id, photo, title, campaigntype, description, amount, date, email, name } = campaign
-    console.log(_id);
+    // console.log(_id);
+
+    const handleDelete = (id) => {
+        // console.log(id);
+        fetch(`http://localhost:5000/campaign/${id}`, {
+            method: "DELETE",
+        })
+        .then(res => res.json())
+        .then(result => {
+            const remainingData = campaignData.filter((campaign) => id!= campaign._id)    
+            setCampaignData(remainingData)     
+        })
+
+        
+    }
     
 
     return (
@@ -16,11 +30,11 @@ const MyCampaignTable = ({ campaign, idx }) => {
                 <td>{date}</td>
                 <td>
                     <div className="flex gap-4">
-                        <Link to={`/`}>
-                            <button className="bg-[#FFBE46] font-semibold px-4 py-2 rounded">Delete</button>
+                        <Link>
+                            <button onClick={()=>handleDelete(_id)} className="bg-[#FFBE46] font-semibold px-4 py-2 rounded">Delete</button>
                         </Link>
 
-                        <Link to={`/`}>
+                        <Link>
                             <button className="bg-[#FFBE46] font-semibold px-4 py-2 rounded">Update</button>
                         </Link>
 
