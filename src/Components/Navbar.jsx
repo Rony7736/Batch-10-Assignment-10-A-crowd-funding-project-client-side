@@ -4,6 +4,7 @@ import { authContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
     const { user, logOut } = useContext(authContext)
+    
 
     const links = <div className="flex justify-center items-center gap-6 font-bold text-lg">
         <NavLink to="/" className={({ isActive }) => `text-base ${isActive ? 'text-white font-semibold border bg-black border-black px-4 py-1 rounded-3xl' : 'hover:text-white'}`}><li>Home</li></NavLink>
@@ -45,9 +46,13 @@ const Navbar = () => {
             <div className="navbar-end gap-4 rounded-lg ">
 
                 {
-                    user && user?.email ? <div>
-                        <img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" />
-                    </div> : ""
+                    user && user?.email ?
+                        <div className="relative group">
+                            <img className="w-12 h-12 rounded-full cursor-pointer" src={user.photoURL} alt={user.displayName || "User Photo"} />
+                            <span className="absolute -bottom-12 left-10 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-xs rounded-md py-1 px-2 shadow-lg">
+                                {user.displayName}
+                            </span>
+                        </div> : ""
                 }
 
                 {

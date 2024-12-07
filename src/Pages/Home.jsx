@@ -1,4 +1,5 @@
 import Banner from "../Components/Banner";
+import FAQ from "../Components/FAQ";
 
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
                 <p className="text-xl text-center font-semibold pb-2">It is A Crowd Funding Donatation Application</p>
             </div>
             <Banner></Banner>
+            <FAQ></FAQ>
         </div>
     );
 };
