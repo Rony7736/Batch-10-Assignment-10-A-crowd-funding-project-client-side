@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Deatails = ({ campaign }) => {
 
     const { photo, title, campaigntype, description, amount, date, email, name } = campaign
-    console.log(campaign);
+    // console.log(campaign);
 
 
     return (

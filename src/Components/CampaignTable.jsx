@@ -1,9 +1,8 @@
-import { FaFile, FaTrash } from "react-icons/fa";
-// import { MdOutlineDoneAll } from "react-icons/md";
+
 import { Link } from "react-router-dom";
 
 const CampaignTable = ({ campaign, idx }) => {
-    console.log(campaign);
+    // console.log(campaign);
     const { photo, title, campaigntype, description, amount, date, email, name } = campaign
 
     return (
@@ -16,7 +15,7 @@ const CampaignTable = ({ campaign, idx }) => {
                 <td>{date}</td>
                 <td>
                     <div className="flex gap-4">
-                        <button className="bg-pink-500 px-4 py-2 rounded text-white">
+                        <button className="bg-[#FFBE46] px-4 py-2 rounded font-semibold">
                             <Link to={`/details`}> See More</Link>
                         </button>
                     </div>
