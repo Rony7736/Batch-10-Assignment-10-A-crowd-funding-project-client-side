@@ -11,7 +11,7 @@ const UpdateCampaign = () => {
     const { id } = useParams()
     const singleCampaignData = useLoaderData()
     const { email, name } = singleCampaignData
-    console.log(id, singleCampaignData);
+    // console.log(id, singleCampaignData);
     
 
     const [photo, setPhoto] = useState(singleCampaignData?.photo)
@@ -154,7 +154,7 @@ const UpdateCampaign = () => {
                         </label>
 
                         <label className="input-group">
-                            <input type="email" placeholder="User Email" name="useremail" defaultValue={email} className="input input-bordered md:w-full" readOnly />
+                            <input type="email" placeholder="User Email" name="useremail" defaultValue={email} className="input input-bordered md:w-full" readOnly disabled />
                         </label>
                     </div>
 
@@ -164,7 +164,7 @@ const UpdateCampaign = () => {
                         </label>
 
                         <label className="input-group">
-                            <input type="text" placeholder="User Name" name="username" defaultValue={name} className="input input-bordered md:w-full" readOnly />
+                            <input type="text" placeholder="User Name" name="username" defaultValue={name} className="input input-bordered md:w-full" readOnly disabled />
                         </label>
                     </div>
                 </div>

@@ -21,7 +21,7 @@ const Deatails = ({ campaign }) => {
                 <p><strong>Date:</strong> {date}</p>
                 <p><strong>Description:</strong> {description}</p>
 
-                <NavLink>
+                <NavLink to="/donatecollection">
                     <button className="btn btn-warning text-white font-bold text-lg mt-3">Donate Now</button>
                 </NavLink>
             </div>

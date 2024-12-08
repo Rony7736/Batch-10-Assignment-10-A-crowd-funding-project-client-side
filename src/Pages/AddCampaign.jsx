@@ -1,11 +1,13 @@
 import Swal from "sweetalert2";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 const AddCampaign = () => {
 
     const [startDate, setStartDate] = useState(new Date());
+    const {user} = useContext(authContext)
 
     const handleAddCampaign = (e) => {
         e.preventDefault()
@@ -16,8 +18,6 @@ const AddCampaign = () => {
         const description = form.description.value
         const donationamount = form.donationamount.value
         const formattedDate = startDate.toLocaleDateString("en-CA");
-        const useremail = form.useremail.value
-        const username = form.username.value
 
         const newCampaign = { 
             photo : photo, 
@@ -26,10 +26,10 @@ const AddCampaign = () => {
             description : description, 
             amount: donationamount, 
             date : formattedDate, 
-            email : useremail, 
-            name : username, 
+            email : user.email, 
+            name : user.displayName, 
         };
-        console.log(newCampaign);
+        // console.log(newCampaign);
 
         // send data to the server
         fetch('http://localhost:5000/addcampaign', {
@@ -150,7 +150,7 @@ const AddCampaign = () => {
                         </label>
 
                         <label className="input-group">
-                            <input type="email" placeholder="User Email" name="useremail" className="input input-bordered md:w-full" required/>
+                            <input type="email" placeholder="User Email" name="useremail" defaultValue={user?.email} className="input input-bordered md:w-full" disabled/>
                         </label>
                     </div>
 
@@ -160,7 +160,7 @@ const AddCampaign = () => {
                         </label>
 
                         <label className="input-group">
-                            <input type="text" placeholder="User Name" name="username" className="input input-bordered md:w-full" required/>
+                            <input type="text" placeholder="User Name" name="username" defaultValue={user?.displayName} className="input input-bordered md:w-full" disabled/>
                         </label>
                     </div>
                 </div>

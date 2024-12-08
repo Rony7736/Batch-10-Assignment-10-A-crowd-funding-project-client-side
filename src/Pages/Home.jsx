@@ -1,6 +1,8 @@
+import { Outlet } from "react-router-dom";
 import Banner from "../Components/Banner";
 import Contact from "../Components/Contact";
 import FAQ from "../Components/FAQ";
+
 
 
 const Home = () => {
@@ -11,6 +13,7 @@ const Home = () => {
                 <p className="text-xl text-center font-semibold pb-2">It is A Crowd Funding Donatation Application</p>
             </div>
             <Banner></Banner>
+            <Outlet></Outlet>
             <Contact></Contact>
             <FAQ></FAQ>
         </div>

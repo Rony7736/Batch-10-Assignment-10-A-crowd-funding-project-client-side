@@ -26,7 +26,6 @@ const Register = () => {
 
         const form = new FormData(e.target)
         const name = form.get("name")
-
         const email = form.get("email")
         const image = form.get("image")
         const password = form.get("password")
