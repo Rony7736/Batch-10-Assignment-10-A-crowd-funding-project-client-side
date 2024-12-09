@@ -1,11 +1,43 @@
 // import { NavLink } from "react-router-dom";
 
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 const Deatails = ({ campaign }) => {
 
     const { photo, title, campaigntype, description, amount, date, email, name } = campaign
-    // console.log(campaign);
+    const { user } = useContext(authContext)
+
+    const handleDonate = () => {
+        const donatedData = {
+            photo,
+            title,
+            campaigntype,
+            description,
+            amount,
+            date,
+            email: user?.email,
+            name: user?.displayName,
+        }
+        // console.log(campaign);
+
+        fetch("http://localhost:5000/donated", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(donatedData)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log("donation successfull", result)
+                alert("thank you for your donation")
+            })
+            .catch((err) => {
+                console.log("ERROR" ,err)
+            })
+
+    }
 
 
     return (
@@ -21,9 +53,8 @@ const Deatails = ({ campaign }) => {
                 <p><strong>Date:</strong> {date}</p>
                 <p><strong>Description:</strong> {description}</p>
 
-                <NavLink to="/donatecollection">
-                    <button className="btn btn-warning text-white font-bold text-lg mt-3">Donate Now</button>
-                </NavLink>
+                <button onClick={handleDonate} className="btn btn-warning text-white font-bold text-lg mt-3">Donate Now</button>
+
             </div>
 
         </div>

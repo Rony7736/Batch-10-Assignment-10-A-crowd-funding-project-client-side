@@ -24,12 +24,12 @@ const AddCampaign = () => {
             title : campaigntitle, 
             campaigntype : campaigntype, 
             description : description, 
-            amount: donationamount, 
+            amount: parseFloat(donationamount), 
             date : formattedDate, 
             email : user.email, 
             name : user.displayName, 
         };
-        // console.log(newCampaign);
+        console.log(typeof donationamount);
 
         // send data to the server
         fetch('http://localhost:5000/addcampaign', {

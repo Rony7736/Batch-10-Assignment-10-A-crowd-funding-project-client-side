@@ -24,7 +24,7 @@ const MyCampaign = () => {
                         </thead>
                         <tbody>
                             {
-                                campaignData.length === 0 ? <p>No Data Found</p> :
+                                campaignData.length === 0 ? <p className="text-red-500 text-lg font-bold">No Data Found</p> :
                                     campaignData.map((campaign, index) => <MyCampaignTable key={campaign?._id} idx={index} campaign={campaign} campaignData={campaignData} setCampaignData={setCampaignData}></MyCampaignTable>)
                             }
                         </tbody>

@@ -51,6 +51,7 @@ const router = createBrowserRouter([
             {
                 path: "/mydonations",
                 element: <MyDonations></MyDonations>,
+                loader: ()=> fetch("http://localhost:5000/donated")
             },
             {
                 path: "/register",
