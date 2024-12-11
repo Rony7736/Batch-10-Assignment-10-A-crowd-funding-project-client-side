@@ -21,7 +21,7 @@ const UpdateCampaign = () => {
     const [amount, setAmount] = useState(singleCampaignData?.amount)
     const [date, setDate] = useState(singleCampaignData?.date)
 
-    console.log(singleCampaignData);
+    // console.log(singleCampaignData);
 
 
     const handleUpdateCampaign = (e) => {

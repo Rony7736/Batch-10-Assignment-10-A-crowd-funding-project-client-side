@@ -1,7 +1,9 @@
 
 const DonatedCard = ({ donatedCard }) => {
     // console.log(donatedCard);
-    const { photo, title, campaigntype, description, amount, date} = donatedCard
+    const { photo, title, campaigntype, description, amount, date, email, name} = donatedCard
+    console.log(donatedCard);
+    
 
     return (
         <div className="card bg-base-100 shadow-xl border">
@@ -14,10 +16,10 @@ const DonatedCard = ({ donatedCard }) => {
                 <p><strong>Campaign Type:</strong> {campaigntype}</p>
                 <p><strong>Donation Amount:</strong> {amount}</p>
                 <p><strong>Date:</strong> {date}</p>
+                <p><strong>Name:</strong> {name}</p>
+                <p><strong>Email:</strong> {email}</p>
                 <p><strong>Description:</strong> {description}</p>
-
             </div>
-
         </div>
     );
 };

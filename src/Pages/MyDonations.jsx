@@ -4,7 +4,7 @@ import DonatedCard from "../Components/DonatedCard";
 const MyDonations = () => {
 
     const donatedData = useLoaderData()
-    console.log(donatedData);
+    // console.log(donatedData);
     
 
     return (

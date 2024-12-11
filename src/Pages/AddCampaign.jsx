@@ -29,7 +29,7 @@ const AddCampaign = () => {
             email : user.email, 
             name : user.displayName, 
         };
-        console.log(typeof donationamount);
+        // console.log(typeof donationamount);
 
         // send data to the server
         fetch('http://localhost:5000/addcampaign', {
@@ -41,7 +41,7 @@ const AddCampaign = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',

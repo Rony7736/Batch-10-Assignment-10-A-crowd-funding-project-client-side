@@ -9,7 +9,7 @@ const AllCampaign = () => {
 
     return (
         <div className="pb-8">
-            <h1 className="text-3xl text-center text-[#FFBE46] font-bold bg-slate-800 p-4">See all the Campaigns here</h1>
+            <h1 className="text-3xl text-center text-[#FFBE46] font-bold bg-slate-800 p-4">All Campaigns: {allCampaign.length}</h1>
             <div className="flex justify-end mx-16 my-6">
                 <button className="bg-blue-500 py-2 px-6 text-white font-semibold">Sort By Price</button>
             </div>

@@ -1,6 +1,6 @@
 
 const RunningCard = ({campaignCard}) => {
-    console.log(campaignCard);
+    // console.log(campaignCard);
     const { photo, title, campaigntype, description, amount, date, email, name } = campaignCard
     
     return (

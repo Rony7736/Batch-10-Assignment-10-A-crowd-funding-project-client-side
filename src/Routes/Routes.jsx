@@ -12,6 +12,7 @@ import UpdateCampaign from "../Components/UpdateCampaign";
 import CampaignDetails from "../Components/CampaignDetails";
 import RunningCampaign from "../Components/RunningCampaign";
 import DonatedCollection from "../Components/DonatedCollection";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/addcampaign",
-                element: <AddCampaign></AddCampaign>,
+                element: <PrivateRoute><AddCampaign></AddCampaign></PrivateRoute>,
             },
             {
                 path: "/updatecampaign",
@@ -45,12 +46,12 @@ const router = createBrowserRouter([
             },
             {
                 path: "/mycampaign",
-                element: <MyCampaign></MyCampaign>,
+                element: <PrivateRoute><MyCampaign></MyCampaign></PrivateRoute>,
                 loader: () => fetch("http://localhost:5000/addcampaign")
             },
             {
                 path: "/mydonations",
-                element: <MyDonations></MyDonations>,
+                element: <PrivateRoute><MyDonations></MyDonations></PrivateRoute>,
                 loader: ()=> fetch("http://localhost:5000/donated")
             },
             {
@@ -62,13 +63,13 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path: "/details",
-                element: <CampaignDetails></CampaignDetails>,
-                loader: () => fetch("http://localhost:5000/addcampaign")
+                path: "/deatils/:id",
+                element: <PrivateRoute><CampaignDetails></CampaignDetails></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
             },
             {
                 path: "/update/:id",
-                element: <UpdateCampaign></UpdateCampaign>,
+                element: <PrivateRoute><UpdateCampaign></UpdateCampaign></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
             },
             {
