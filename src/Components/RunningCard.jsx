@@ -13,7 +13,7 @@ const RunningCard = ({ campaignCard }) => {
     }
 
     return (
-        <div className="card bg-base-100 shadow-xl border">
+        <div className="card bg-base-100 shadow-xl border my-6">
             <figure className="p-6">
                 <img className="object-cover w-full h-[230px]" src={photo} alt="" />
             </figure>
@@ -28,7 +28,7 @@ const RunningCard = ({ campaignCard }) => {
             </div>
 
             <Link to={`/deatils/${_id}`}>
-                <button className="bg-[#FFBE46] px-4 py-2 rounded font-semibold ml-8 mb-3">Details</button>
+                <button className="bg-[#FFBE46] px-4 py-2 rounded font-semibold ml-8 mb-3">See More</button>
             </Link>
         </div>
     );

@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
     const [email, setEmail] = useState("")
 
     const [user, setUser] = useState(null)
-    // console.log(user);
+    console.log(user);
 
     const [loading, setLoading] = useState(true)
 

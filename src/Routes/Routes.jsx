@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             {
                 path: "/mydonations",
                 element: <PrivateRoute><MyDonations></MyDonations></PrivateRoute>,
-                loader: ()=> fetch("http://localhost:5000/donated")
+                // loader: ()=> fetch(`http://localhost:5000/donated?email=${}`)
             },
             {
                 path: "/register",
