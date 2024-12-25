@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 const RunningCampaign = () => {
 
-    // const data = useLoaderData()
     // console.log(data);
     const [runingCards, setRuningCards] = useState([])
 

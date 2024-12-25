@@ -27,7 +27,6 @@ const router = createBrowserRouter([
                     {
                         path: "/",
                         element: <RunningCampaign></RunningCampaign>,
-                        loader: () => fetch("http://localhost:5000/addcampaign")
                     }
                 ]
             },
@@ -51,7 +50,6 @@ const router = createBrowserRouter([
             {
                 path: "/mydonations",
                 element: <PrivateRoute><MyDonations></MyDonations></PrivateRoute>,
-                // loader: ()=> fetch(`http://localhost:5000/donated?email=${}`)
             },
             {
                 path: "/register",
