@@ -1,11 +1,28 @@
-import { useLoaderData } from "react-router-dom";
+
 import MyCampaignTable from "../Components/MyCampaignTable";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 const MyCampaign = () => {
-    const data = useLoaderData()
+    const {user} = useContext(authContext)
 
-    const [campaignData, setCampaignData] = useState(data)
+    const [campaignData, setCampaignData] = useState([])
+    useEffect(()=>{
+        fetch("http://localhost:5000/mycampaign", {
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/json" 
+            },
+            body : JSON.stringify({email : user.email})
+        })
+        .then(res => res.json())
+        .then(data => {
+            setCampaignData(data)
+        })
+        
+    }, [])
+
+    
     return (
         <div className="pb-8">
             <h1 className="text-3xl text-center text-[#FFBE46] font-bold bg-slate-800 p-4">My Campaigns</h1>

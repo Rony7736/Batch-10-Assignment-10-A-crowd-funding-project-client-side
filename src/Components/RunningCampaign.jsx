@@ -1,10 +1,24 @@
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import RunningCard from "./RunningCard";
+import { useEffect, useState } from "react";
 
 const RunningCampaign = () => {
 
-    const data = useLoaderData()
+    // const data = useLoaderData()
     // console.log(data);
+    const [runingCards, setRuningCards] = useState([])
+
+    const currentDate = new Date()
+    const runningDate = runingCards.filter(running => new Date(running.date) > currentDate )
+
+
+        useEffect(() => {
+            fetch('http://localhost:5000/addcampaign')
+                .then(res => res.json())
+                .then(data => {
+                    setRuningCards(data)
+                })
+        }, [])
 
     return (
         <div className="my-10">
@@ -12,7 +26,7 @@ const RunningCampaign = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg: mb-6 mx-10">
                 {
-                    data.map(campaignCard => <RunningCard key={campaignCard._id} campaignCard={campaignCard}></RunningCard>)
+                    runningDate.slice(0 - 6).map(campaignCard => <RunningCard key={campaignCard._id} campaignCard={campaignCard}></RunningCard>)
                 }
             </div>
         </div>

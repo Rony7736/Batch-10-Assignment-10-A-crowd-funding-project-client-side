@@ -2,7 +2,6 @@
 const DonatedCard = ({ donatedCard }) => {
     // console.log(donatedCard);
     const { photo, title, campaigntype, description, amount, date, email, name} = donatedCard
-    console.log(donatedCard);
     
 
     return (
