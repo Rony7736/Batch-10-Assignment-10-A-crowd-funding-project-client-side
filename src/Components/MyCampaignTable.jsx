@@ -25,7 +25,7 @@ const MyCampaignTable = ({ campaign, idx, campaignData, setCampaignData }) => {
                 })
                     .then(res => res.json())
                     .then(result => {
-                        console.log(result)
+                        // console.log(result)
                         if (result.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",

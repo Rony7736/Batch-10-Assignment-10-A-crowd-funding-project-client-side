@@ -40,7 +40,7 @@ const CampaignDetails = () => {
                 if (!result.acknowledged) {
                     Swal.fire({
                         title: 'Error!',
-                        text: 'Donated Data Successfully',
+                        text: 'Donated Date is Over',
                         icon: 'error',
                         confirmButtonText: 'Close'
                     })
@@ -52,12 +52,12 @@ const CampaignDetails = () => {
                         confirmButtonText: 'Close'
                     })
                 }
-                console.log(result.acknowledged);
+                // console.log(result.acknowledged);
 
             })
 
             .catch((err) => {
-                console.log("ERROR", err)
+                // console.log("ERROR", err)
             })
     }
 
