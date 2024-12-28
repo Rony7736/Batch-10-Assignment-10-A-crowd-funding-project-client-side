@@ -20,7 +20,7 @@ const MyCampaignTable = ({ campaign, idx, campaignData, setCampaignData }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/campaign/${id}`, {
+                fetch(`https://a-crowd-funding-project-server-side.vercel.app/campaign/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())

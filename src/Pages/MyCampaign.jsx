@@ -8,7 +8,7 @@ const MyCampaign = () => {
 
     const [campaignData, setCampaignData] = useState([])
     useEffect(()=>{
-        fetch("http://localhost:5000/mycampaign", {
+        fetch("https://a-crowd-funding-project-server-side.vercel.app/mycampaign", {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json" 

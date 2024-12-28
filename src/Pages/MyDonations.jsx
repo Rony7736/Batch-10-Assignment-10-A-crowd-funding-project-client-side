@@ -11,7 +11,7 @@ const MyDonations = () => {
     const [donated, setDonated] = useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/donated?email=${user?.email}`)
+        fetch(`https://a-crowd-funding-project-server-side.vercel.app/donated?email=${user?.email}`)
         .then(res => res.json())
         .then(data => setDonated(data))
     }, [])

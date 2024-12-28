@@ -12,7 +12,7 @@ const RunningCampaign = () => {
 
 
         useEffect(() => {
-            fetch('http://localhost:5000/addcampaign')
+            fetch('https://a-crowd-funding-project-server-side.vercel.app/addcampaign')
                 .then(res => res.json())
                 .then(data => {
                     setRuningCards(data)

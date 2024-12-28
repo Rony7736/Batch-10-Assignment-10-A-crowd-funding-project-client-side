@@ -38,7 +38,7 @@ const UpdateCampaign = () => {
             name: name,
         }
 
-        fetch(`http://localhost:5000/campaign/${id}`, {
+        fetch(`https://a-crowd-funding-project-server-side.vercel.app/campaign/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

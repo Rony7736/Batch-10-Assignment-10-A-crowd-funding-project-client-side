@@ -39,7 +39,7 @@ const AddCampaign = () => {
         // console.log(typeof donationamount);
 
         // send data to the server
-        fetch('http://localhost:5000/addcampaign', {
+        fetch('https://a-crowd-funding-project-server-side.vercel.app/addcampaign', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

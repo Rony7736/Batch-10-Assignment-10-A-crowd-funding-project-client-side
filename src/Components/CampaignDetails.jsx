@@ -28,7 +28,7 @@ const CampaignDetails = () => {
             name: user?.displayName,
         }
 
-        fetch("http://localhost:5000/donated", {
+        fetch("https://a-crowd-funding-project-server-side.vercel.app/donated", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
