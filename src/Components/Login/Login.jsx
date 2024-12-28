@@ -4,6 +4,9 @@ import { authContext } from "../../AuthProvider/AuthProvider";
 
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { toast } from "react-toastify";
+import Lottie from "lottie-react";
+
+import loginLottieData from "../../assets/lottie/signin.json"
 
 const Login = () => {
 
@@ -56,8 +59,10 @@ const Login = () => {
     return (
         <div>
             <div className="hero bg-base-200 lg:py-20">
-                <div className="hero-content flex-col lg:flex-row-reverse ">
-   
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <div>
+                        <Lottie animationData={loginLottieData}></Lottie>
+                    </div>
                     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl px-4">
                         <h1 className="text-5xl font-bold text-center pt-6">Login now!</h1>
                         <form onSubmit={handleSubmit} className="card-body">

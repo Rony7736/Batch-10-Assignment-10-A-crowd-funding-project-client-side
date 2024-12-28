@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
 
+
 const Navbar = () => {
     const { user, logOut } = useContext(authContext)
 
@@ -93,10 +94,13 @@ const Navbar = () => {
                 {
                     user && user?.email ?
                         <div className="relative group">
-                            <img referrerPolicy='no-referrer' className="w-12 h-12 rounded-full cursor-pointer" src={user.photoURL} alt={user.displayName || "User Photo"} />
-                            <span className="absolute -bottom-12 left-10 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-xs rounded-md py-1 px-2 shadow-lg">
+                            <img referrerPolicy='no-referrer' className="w-12 h-12 rounded-full cursor-pointer" data-tooltip-id="tooltip" data-tooltip-content={user?.displayName} src={user.photoURL} alt={user.displayName || "User Photo"}
+
+                            />
+
+                            {/* <span className="absolute -bottom-12 left-10 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-xs rounded-md py-1 px-2 shadow-lg">
                                 {user.displayName}
-                            </span>
+                            </span> */}
                         </div> : ""
                 }
 

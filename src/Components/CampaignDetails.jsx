@@ -2,15 +2,19 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+// import { verifyDeadline } from "./hook/DateLine";
 
 const CampaignDetails = () => {
+
 
     const campaignData = useLoaderData();
     const { _id, photo, title, campaigntype, description, amount, date } = campaignData
     const { user } = useContext(authContext)
-    const {id} = useParams()
-    console.log(user);
-    
+    const { id } = useParams()
+
+    // verifyDeadline({deadline : date})
+    // console.log(verifyDeadline({deadline : date}));
+
 
     const handleDonate = () => {
         const donatedData = {
@@ -23,7 +27,6 @@ const CampaignDetails = () => {
             email: user?.email,
             name: user?.displayName,
         }
-        // console.log(campaign);
 
         fetch("http://localhost:5000/donated", {
             method: "POST",
@@ -34,15 +37,27 @@ const CampaignDetails = () => {
         })
             .then(res => res.json())
             .then(result => {
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Donated Data Successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Close'
-                })
+                if (!result.acknowledged) {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Donated Data Successfully',
+                        icon: 'error',
+                        confirmButtonText: 'Close'
+                    })
+                } else {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Donated Data Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Close'
+                    })
+                }
+                console.log(result.acknowledged);
+
             })
+
             .catch((err) => {
-                console.log("ERROR" ,err)
+                console.log("ERROR", err)
             })
     }
 
